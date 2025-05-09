@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmed - Event Booking</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">Event Booking</h1>
+    <nav>
+      <button id="homeBtn" class="btn small">Home</button>
+      <button id="logoutBtn" class="btn small">Log Out</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card center">
+      <h2 class="title">Congratulations!</h2>
+      <p class="text">Your booking was successful. 🎉</p>
+      <p class="text">We look forward to seeing you at the event.</p>
+    </section>
+  </main>
+
+  <script>
+    if (!localStorage.getItem('token')) {
+      window.location.href = 'login.html';
+    }
+
+    document.getElementById('homeBtn')
+      .addEventListener('click', () => window.location.href = 'index.html');
+    document.getElementById('logoutBtn')
+      .addEventListener('click', () => {
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Bookings - Event Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">My Bookings</h1>
+    <nav>
+      <button id="homeBtn" class="btn small">Home</button>
+      <button id="logoutBtn" class="btn small">Log Out</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="title">Booked Events</h2>
+    <div id="bookingList" class="list"></div>
+    <p id="noBookings" class="info" hidden>No bookings found.</p>
+  </main>
+
+  <script src="js/myBookings.js"></script>
+  <script>
+    if (!localStorage.getItem('token')) {
+      window.location.href = 'login.html';
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('token');
+      window.location.href = 'login.html';
+    });
+
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

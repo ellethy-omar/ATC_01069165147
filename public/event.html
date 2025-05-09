@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Details - Event Booking</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">Event Booking</h1>
+    <nav>
+      <button id="backBtn" class="btn small">Back to Events</button>
+      <button id="logoutBtn" class="btn small">Log Out</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="eventDetails" class="card">
+      <h2 id="eventTitle" class="title">Loading…</h2>
+      <p id="eventDesc" class="text"></p>
+      <p><strong>Date:</strong> <span id="eventDate"></span></p>
+      <p><strong>Location:</strong> <span id="eventLocation"></span></p>
+      <p><strong>Capacity:</strong> <span id="eventCapacity"></span></p>
+      <button id="bookBtn" class="btn">Book Now</button>
+      <p id="eventError" class="error"></p>
+    </section>
+  </main>
+
+  <script src="js/eventDetail.js"></script>
+  <script>
+    if (!localStorage.getItem('token')) {
+      window.location.href = 'login.html';
+    }
+
+    document.getElementById('backBtn')
+      .addEventListener('click', () => window.location.href = 'index.html');
+    document.getElementById('logoutBtn')
+      .addEventListener('click', () => {
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+      });
+  </script>
+</body>
+</html>
